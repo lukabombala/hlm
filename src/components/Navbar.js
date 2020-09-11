@@ -33,21 +33,21 @@ render() {
               <MDBNavLink className="nav-link, black-text" to="#!">Strona głowna</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
-              <MDBNavLink className="nav-link, black-text" to="#!">TODO</MDBNavLink>
+              <MDBNavLink className="nav-link, black-text" to="#!">Zastępy</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
-              <MDBNavLink className="nav-link, black-text" to="#!">TODO</MDBNavLink>
+              <MDBNavLink className="nav-link, black-text" to="#!">Faza pucharowa</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
               <MDBDropdown>
                 <MDBDropdownToggle nav caret>
-                  <span className="mr-2, black-text">TODO</span>
+                  <span className="mr-2, black-text">o HLM</span>
                 </MDBDropdownToggle>
                 <MDBDropdownMenu>
-                  <MDBDropdownItem href="#!">Action</MDBDropdownItem>
-                  <MDBDropdownItem href="#!">Another Action</MDBDropdownItem>
-                  <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
-                  <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
+                  <MDBDropdownItem href="#!">Historia</MDBDropdownItem>
+                  <MDBDropdownItem href="#!">Regulamin</MDBDropdownItem>
+                  <MDBDropdownItem href="#!">Poprzednie edycje</MDBDropdownItem>
+                  <MDBDropdownItem href="#!">Pomoc</MDBDropdownItem>
                 </MDBDropdownMenu>
               </MDBDropdown>
             </MDBNavItem>
@@ -55,12 +55,7 @@ render() {
           <MDBNavbarNav right>
             <MDBNavItem>
                 <MDBNavLink className="waves-effect waves-light" to="#!">
-                <MDBBtn color="primary">
-        <MDBIcon icon="magic" className="mr-1" /> Left
-      </MDBBtn>
-      <MDBBtn color="default">
-        Right <MDBIcon icon="magic" className="ml-1" />
-      </MDBBtn>
+                <MDBIcon fab icon="facebook" size="2x" className="pr-3" />
                 </MDBNavLink>
             </MDBNavItem>
           </MDBNavbarNav>
