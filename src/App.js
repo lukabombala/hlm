@@ -3,24 +3,66 @@ import { MDBBtn, MDBCol, MDBContainer, MDBRow, MDBCardImage, MDBCardTitle, MDBCa
 import "./index.css";
 import NavbarPage from "./components/Navbar.js"
 import Body from "./components/Body.js"
-import MainPage from "./components/MainPage.js"
-import FooterPage from "./components/FooterPage";
+import MainPage from "./components/pages/MainPage.js"
+import Footer from "./components/Footer";
 import ResultsCard from "./components/ResultsCard"
+import TroopsPage from "./components/pages/TroopsPage.js";
+import RegulationsPage from "./components/pages/RegulationsPage.js"
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      menudisplay: {
+          mainpage: true,
+          troopspage: false,
+          regulationspage: false,
+      },
+    };
+  }
+
+  handleMenuButtonClick = (name) => {
+    const menudisplay = this.state.menudisplay;
+    Object.keys(menudisplay).forEach(key => menudisplay[key] = false)
+    menudisplay[name] = true;
+    this.setState({menudisplay});
+    
+  }
+
+  componentDidMount() {
+    document.title = "Harcerska Liga Mistrzów"
+  }
+  
   render() {
     return (
       <React.Fragment>
-        <NavbarPage/>
+        <NavbarPage handleClick={this.handleMenuButtonClick}/>
           <MDBContainer style={{ marginTop: '25px' }}>
-            <ResultsCard/>
-            <MainPage/>
+
+            {this.state.menudisplay.mainpage && 
+              <React.Fragment>
+                <ResultsCard/>
+                <MainPage/>
+              </React.Fragment> 
+            }
+
+            {this.state.menudisplay.troopspage &&
+              <React.Fragment>
+                <TroopsPage/>
+              </React.Fragment>
+            }
+
+            {this.state.menudisplay.regulationspage &&
+              <React.Fragment>
+                <RegulationsPage/>
+              </React.Fragment>
+            }
+
           </MDBContainer>
-          <FooterPage/>
+          <Footer/>
       </React.Fragment>
     );
   }
 }
 
 export default App;
-  

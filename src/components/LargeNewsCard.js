@@ -7,6 +7,10 @@ class LargeNewsCard extends Component {
         this.state = {
             title: this.props.title,
             image: this.props.image,
+            icon: this.props.icon,
+            category: this.props.category,
+            dateadd: this.props.dateadd,
+            shortdescription: this.props.shortdescription,
         };
     }
 
@@ -29,13 +33,13 @@ class LargeNewsCard extends Component {
                 <div className="d-flex justify-content-between">
                   <a href="#!" className="light-blue-text">
                     <h6 className="font-weight-bold">
-                      <MDBIcon icon="plane" className="pr-2" />
-                      Travels
+                      <MDBIcon icon={this.state.icon} className="pr-2" />
+                      {this.state.category}
                     </h6>
                   </a>
                   <p className="font-weight-bold dark-grey-text">
                     <MDBIcon far icon="clock" className="pr-2" />
-                    20/08/2018
+                    {this.state.dateadd}
                   </p>
                 </div>
                 <h3 className="font-weight-bold dark-grey-text mb-3 p-0">
@@ -47,6 +51,7 @@ class LargeNewsCard extends Component {
                   possimus, omnis voluptas assumenda est, omnis dolor
                   repellendus.
                 </p>
+                
             </div>
         );
     }

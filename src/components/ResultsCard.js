@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { MDBCardBody, MDBCardImage, MDBCardText, MDBCardTitle, MDBCol, MDBCard, MDBBtn, MDBRow, MDBTable, MDBTableBody, MDBContainer, MDBListGroup, MDBListGroupItem, MDBBadge, MDBTypography} from 'mdbreact';
-import "./resultscard.css"
 
 class ResultsCard extends Component {
   render() {
