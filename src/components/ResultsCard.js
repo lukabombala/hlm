@@ -14,15 +14,15 @@ class ResultsCard extends Component {
                 <MDBCol lg="6" md="12">
                 <MDBContainer>
                 
-                  <MDBTypography note noteColor="warning">
-                    1 JASKÓŁKI
-                  </MDBTypography>
-                  <MDBTypography note noteColor="secondary">
-                    2 ELEFANTY
-                  </MDBTypography>
-                  <MDBTypography note noteColor="special">
-                    3 NIEDŹWIEDZIE
-                  </MDBTypography>
+                  <div className="border border-dark">
+                    1 miejsce
+                  </div>
+                  <div className="border border-dark">
+                    2 miejsce
+                  </div>
+                  <div className="border border-dark">
+                    3 miejsce
+                  </div>
                     
                     
               </MDBContainer>

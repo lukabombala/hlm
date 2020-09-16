@@ -7,16 +7,16 @@ import MainPage from "./components/pages/MainPage.js"
 import Footer from "./components/Footer";
 import ResultsCard from "./components/ResultsCard"
 import TroopsPage from "./components/pages/TroopsPage.js";
-import RegulationsPage from "./components/pages/RegulationsPage.js"
+import RegulationsPage from "./components/pages/RegulationsPage/RegulationsPage.js"
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       menudisplay: {
-          mainpage: true,
+          mainpage: false,
           troopspage: false,
-          regulationspage: false,
+          regulationspage: true,
       },
     };
   }

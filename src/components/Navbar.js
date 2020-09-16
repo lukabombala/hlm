@@ -60,10 +60,10 @@ render() {
                   <span className="mr-2, black-text">o HLM</span>
                 </MDBDropdownToggle>
                 <MDBDropdownMenu>
-                  <MDBDropdownItem href="#!">Historia</MDBDropdownItem>
-                  <MDBDropdownItem href="#!">Poprzednie edycje</MDBDropdownItem>
-                  <MDBDropdownItem href="#!">Najczęściej zadawane pytania</MDBDropdownItem>
-                  <MDBDropdownItem href="#!">Kontakt </MDBDropdownItem>
+                  <MDBDropdownItem disabled href="#!">Historia</MDBDropdownItem>
+                  <MDBDropdownItem disabled href="#!">Poprzednie edycje</MDBDropdownItem>
+                  <MDBDropdownItem disabled href="#!">Najczęściej zadawane pytania</MDBDropdownItem>
+                  <MDBDropdownItem disabled href="#!">Kontakt </MDBDropdownItem>
                 </MDBDropdownMenu>
               </MDBDropdown>
             </MDBNavItem>
