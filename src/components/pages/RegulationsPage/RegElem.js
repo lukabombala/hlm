@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {MDBTypography, MDBBtn, MDBCollapse, MDBCard, MDBCardTitle, MDBCardText, MDBCardBody} from "mdbreact";
+import {MDBTypography, MDBBtn, MDBCollapse, MDBCard, MDBCardTitle, MDBCardText, MDBCardBody, MDBIcon} from "mdbreact";
 
 class RegElem extends Component {
     constructor(props) {
@@ -25,12 +25,20 @@ class RegElem extends Component {
                 <MDBCard>
                     <MDBCardBody>
                         <MDBCardTitle>
+                            
                 <div className="border border-dark"
       onClick={this.toggleCollapse("basicCollapse")}
       
     >
+        <li>
       {this.state.title}
-    </div>
+    
+    <MDBIcon className="float-right"
+                icon={this.state.collapseID === 'basicCollapse' ? 'angle-up' : 'angle-down'}
+              />
+              </li>
+              </div>
+              
     </MDBCardTitle>
         <MDBCollapse id="basicCollapse" isOpen={this.state.collapseID}>
         

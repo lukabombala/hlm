@@ -8,7 +8,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 class NavbarPage extends Component {
 state = {
   isOpen: false,
-  active: [true, null, null, null]
+  active: [null, null, true, null]
   
 };
 
