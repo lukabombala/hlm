@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
-import { MDBCardBody, MDBCardImage, MDBCardText, MDBCardTitle, MDBCol, MDBCard, MDBBtn, MDBRow, MDBTable, MDBTableBody, MDBContainer, MDBListGroup, MDBListGroupItem, MDBBadge, MDBTypography} from 'mdbreact';
+import { MDBCardBody, MDBCardImage, MDBCardText, MDBCardTitle, MDBCol, MDBCard, MDBBtn, MDBRow, MDBTable, MDBTableBody, MDBContainer, MDBListGroup, MDBListGroupItem, MDBBadge, MDBTypography, MDBBox} from 'mdbreact';
+import gold_cup from "./png/004-gold-cup.png"
+import silver_cup from "./png/005-silver-cup.png"
+import bronze_cup from "./png/006-bronze-cup.png"
 
 class ResultsCard extends Component {
   render() {
     return(
+      <MDBContainer style={{ marginTop: '100px'}}>
       <MDBCol>
       <MDBCard style={{ 
                         background: "url(https://mdbootstrap.com/img/Photos/Others/background3.jpg)",
@@ -13,19 +17,42 @@ class ResultsCard extends Component {
              <MDBRow>
                 <MDBCol lg="6" md="12">
                 <MDBContainer>
+                      <MDBRow>
+                        <MDBCol size='4' className="border border-dark">
+                      <img src={gold_cup} className="img-fluid z-depth-1 rounded-circle" alt="" />
+                      </MDBCol>
+                      <MDBCol size='8' className="border border-dark">
+                        <MDBBox display="flex" justifyContent="center" >
+                            1 MIEJSCE
+                        </MDBBox>
+                      </MDBCol>
+                      </MDBRow>
+
+                      <MDBRow>
+                      <MDBCol size='4' className="border border-dark">
+                      <img src={silver_cup} className="img-fluid z-depth-1 rounded-circle" alt="" />
+                      </MDBCol>
+                      <MDBCol size='8' className="border border-dark">
+                        <MDBBox display="flex" justifyContent="center" >
+                            2 MIEJSCE
+                        </MDBBox>
+                      </MDBCol>
+                      </MDBRow>
                 
-                  <div className="border border-dark">
-                    1 miejsce
-                  </div>
-                  <div className="border border-dark">
-                    2 miejsce
-                  </div>
-                  <div className="border border-dark">
-                    3 miejsce
-                  </div>
+                      <MDBRow>
+                      <MDBCol size='4' className="border border-dark">
+                      <img src={bronze_cup} className="img-fluid z-depth-1 rounded-circle" alt="" />
+                      </MDBCol>
+                      <MDBCol size='8' className="border border-dark">
+                        <MDBBox display="flex" justifyContent="center" >
+                            3 MIEJSCE
+                        </MDBBox>
+                      </MDBCol>
+                      </MDBRow>
+                
+                
                     
-                    
-              </MDBContainer>
+                </MDBContainer>
                 </MDBCol>
                 <MDBCol lg="6" md="12">
                 
@@ -74,6 +101,7 @@ class ResultsCard extends Component {
         </MDBCardBody>
       </MDBCard>
     </MDBCol>
+    </MDBContainer>
     );
   }
 }

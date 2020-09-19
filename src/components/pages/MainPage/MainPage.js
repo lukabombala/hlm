@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { MDBBtn, MDBCol, MDBContainer, MDBRow , MDBCard, MDBCardBody, MDBMask, MDBView, MDBIcon} from "mdbreact";
-import LargeNewsCard from "../LargeNewsCard.js";
-import SmallNewsCard from "../SmallNewsCard.js";
+import LargeNewsCard from "../../LargeNewsCard.js";
+import SmallNewsCard from "../../SmallNewsCard.js";
+import Pagination from "./Pagination.js";
 
 class MainPage extends Component {
     render() {
@@ -58,6 +59,7 @@ class MainPage extends Component {
                   </MDBCol>
                 </MDBRow>
               </MDBContainer>
+              <Pagination/>
               </MDBContainer>
             </React.Fragment>
         );

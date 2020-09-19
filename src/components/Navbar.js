@@ -8,7 +8,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 class NavbarPage extends Component {
 state = {
   isOpen: false,
-  active: [null, null, true, null]
+  active: [true, null, null, null]
   
 };
 
@@ -36,6 +36,8 @@ render() {
         <MDBNavbar color='white'
                    light
                    expand="md"
+                   scrolling
+                   fixed="top"
         >
         <MDBContainer>
         <MDBNavbarBrand>
@@ -60,7 +62,7 @@ render() {
                   <span className="mr-2, black-text">o HLM</span>
                 </MDBDropdownToggle>
                 <MDBDropdownMenu>
-                  <MDBDropdownItem disabled href="#!">Historia</MDBDropdownItem>
+                  <MDBDropdownItem  active={active[3]} onClick={() => {this.props.handleClick("historypage");this.toggleCollapseFalse();this.toggleActive(3)}}>Historia</MDBDropdownItem>
                   <MDBDropdownItem disabled href="#!">Poprzednie edycje</MDBDropdownItem>
                   <MDBDropdownItem disabled href="#!">Najczęściej zadawane pytania</MDBDropdownItem>
                   <MDBDropdownItem disabled href="#!">Kontakt </MDBDropdownItem>

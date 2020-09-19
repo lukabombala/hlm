@@ -5,6 +5,7 @@ class LargeNewsCard extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            id: this.props.id,
             title: this.props.title,
             image: this.props.image,
             icon: this.props.icon,

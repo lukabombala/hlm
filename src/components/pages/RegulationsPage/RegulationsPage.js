@@ -12,7 +12,7 @@ class RegulationsPage extends Component {
 
     render() {
         return(
-            <div style={{ marginTop: '30px' }}>
+            <div style={{ marginTop: '100px' }}>
             
             <IntroPart/>
                 
