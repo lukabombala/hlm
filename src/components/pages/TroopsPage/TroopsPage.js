@@ -4,40 +4,51 @@ import {MDBCard, MDBCardBody, MDBCardImage, MDBCardGroup, MDBCardTitle, MDBCardT
 import TeamCard from "./TeamCard.js";
 
 class TroopsPage extends Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+          troops: [],
+          teams: [],
+          results: [],
+      };
+    }
+
+    componentDidMount() {
+      fetch("https://lukabombala.pythonanywhere.com/hlm/troops?format=json")
+      .then(response => response.json())
+      .then(data => this.setState({ troops: data.results }))
+
+      fetch("https://lukabombala.pythonanywhere.com/hlm/teams?format=json")
+      .then(response => response.json())
+      .then(data => this.setState({ teams: data.results }))
+
+      fetch("https://lukabombala.pythonanywhere.com/hlm/results?format=json")
+      .then(response => response.json())
+      .then(data => this.setState({ results: data.results }))
+    }
+
     render() {
+        const troops=this.state.troops;
+        const teams=this.state.teams;
+
         return(
             <div>
-                <CardExample/>
+                <MDBContainer style={{ marginTop: '100px' }}>
+                  <MDBCardGroup>
+                    <MDBRow>
+                    {teams.map((team) => {
+                      return (
+                      <MDBCol lg="6" md="6">
+                        <TeamCard key={team.id} team={team} troops={troops.filter(troop => troop.troop_team==team.id)}/>
+                      </MDBCol>
+                      );
+                    })}
+                    </MDBRow>
+                  </MDBCardGroup>
+                </MDBContainer>
             </div>
         );
     }
-}
-
-
-const CardExample = () => {
-  return (
-    <MDBContainer>
-    <MDBCardGroup>
-    <MDBRow>
-        <MDBCol lg="6" md="6">
-      <TeamCard name="1"/>
-      </MDBCol>
-      <MDBCol lg="6" md="6">
-      <TeamCard name="2"/>
-    </MDBCol>
-      </MDBRow>
-    <MDBRow>
-    <MDBCol lg="6" md="6">
-    <TeamCard name="3"/>
-</MDBCol>
-<MDBCol lg="6" md="6">
-<TeamCard name="4"/>
-     
-      </MDBCol>
-      </MDBRow>
-    </MDBCardGroup>
-    </MDBContainer>
-  );
 }
 
 export default TroopsPage;

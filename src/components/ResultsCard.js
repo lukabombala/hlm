@@ -5,7 +5,23 @@ import silver_cup from "./png/005-silver-cup.png"
 import bronze_cup from "./png/006-bronze-cup.png"
 
 class ResultsCard extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      results: []
+    };
+  }
+  
+  componentDidMount() {
+    fetch("https://lukabombala.pythonanywhere.com/hlm/results?format=json")
+    .then(response => response.json())
+    .then(data => this.setState({ results: data.results }))
+  }
+
   render() {
+    const last = this.state.results.slice(3);
+    const first= this.state.results.slice(0,3);
+
     return(
       <MDBContainer style={{ marginTop: '100px'}}>
       <MDBCol>
@@ -17,82 +33,38 @@ class ResultsCard extends Component {
              <MDBRow>
                 <MDBCol lg="6" md="12">
                 <MDBContainer>
-                      <MDBRow>
+                  {first.map((troop) => {
+                    return (
+                      <MDBRow key={troop.id}>
                         <MDBCol size='4' className="border border-dark">
-                      <img src={gold_cup} className="img-fluid z-depth-1 rounded-circle" alt="" />
-                      </MDBCol>
-                      <MDBCol size='8' className="border border-dark">
-                        <MDBBox display="flex" justifyContent="center" >
-                            1 MIEJSCE
-                        </MDBBox>
-                      </MDBCol>
+                            {troop.place==1 && <img src={gold_cup} className="img-fluid z-depth-1 rounded-circle" alt="" />}
+                            {troop.place==2 && <img src={bronze_cup} className="img-fluid z-depth-1 rounded-circle" alt="" />}
+                            {troop.place==3 && <img src={silver_cup} className="img-fluid z-depth-1 rounded-circle" alt="" />}
+                        </MDBCol>
+                        <MDBCol size='8' className="border border-dark">
+                          <MDBBox display="flex" justifyContent="center" >
+                              {troop.troop_name}
+                          </MDBBox>
+                        </MDBCol>
                       </MDBRow>
-
-                      <MDBRow>
-                      <MDBCol size='4' className="border border-dark">
-                      <img src={silver_cup} className="img-fluid z-depth-1 rounded-circle" alt="" />
-                      </MDBCol>
-                      <MDBCol size='8' className="border border-dark">
-                        <MDBBox display="flex" justifyContent="center" >
-                            2 MIEJSCE
-                        </MDBBox>
-                      </MDBCol>
-                      </MDBRow>
-                
-                      <MDBRow>
-                      <MDBCol size='4' className="border border-dark">
-                      <img src={bronze_cup} className="img-fluid z-depth-1 rounded-circle" alt="" />
-                      </MDBCol>
-                      <MDBCol size='8' className="border border-dark">
-                        <MDBBox display="flex" justifyContent="center" >
-                            3 MIEJSCE
-                        </MDBBox>
-                      </MDBCol>
-                      </MDBRow>
-                
-                
-                    
+                    );
+                  })}
                 </MDBContainer>
                 </MDBCol>
                 <MDBCol lg="6" md="12">
                 
-    <MDBTable bordered>
+    <MDBTable bordered striped>
       <MDBTableBody>
-        <tr>
-          <td>4</td>
-          <td>PANDY</td>
-          <td>123</td>
-        </tr>
-        <tr>
-          <td>5</td>
-          <td>RYSIE</td>
-          <td>104</td>
-        </tr>
-        <tr>
-          <td>6</td>
-          <td>OWOCKI</td>
-          <td>99</td>
-        </tr>
-        <tr>
-          <td>7</td>
-          <td>SOKOŁY</td>
-          <td>86</td>
-        </tr>
-        <tr>
-          <td>8</td>
-          <td>TUKANY</td>
-          <td>54</td>
-        </tr>
-        <tr>
-          <td>9</td>
-          <td>DZIKI</td>
-          <td>32</td>
-        </tr>
-        <tr>
-          <td>10</td>
-          <td>PAPUGI</td>
-          <td>2</td>
-        </tr>
+        {last.map((troop) => {
+          return (
+            <tr key={troop.id}>
+              <td>{troop.place}</td>
+              <td>{troop.troop_name}</td>
+              <td>{troop.points}</td>
+              <td>{troop.rev_points}</td>
+            </tr>
+          );
+        })}
       </MDBTableBody>
     </MDBTable>
 

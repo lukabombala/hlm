@@ -9,6 +9,7 @@ import TroopsPage from "./components/pages/TroopsPage/TroopsPage.js";
 import RegulationsPage from "./components/pages/RegulationsPage/RegulationsPage.js"
 import ArticlePage from "./components/pages/ArticlePage/ArticlePage.js";
 import HistoryPage from "./components/pages/HistoryPage.js";
+import ArchivePage from "./components/pages/ArchivePage/ArchivePage.js";
 
 class App extends Component {
   constructor(props) {
@@ -20,6 +21,7 @@ class App extends Component {
           regulationspage: false,
           articlepage: false,
           historypage: false,
+          archivepage: false,
       },
     };
   }
@@ -71,6 +73,12 @@ class App extends Component {
             {this.state.menudisplay.historypage &&
               <React.Fragment>
                 <HistoryPage/>
+              </React.Fragment>
+            }
+
+            {this.state.menudisplay.archivepage &&
+              <React.Fragment>
+                <ArchivePage/>
               </React.Fragment>
             }
 

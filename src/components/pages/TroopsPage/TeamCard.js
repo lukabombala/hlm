@@ -5,29 +5,30 @@ class TeamCard extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: props.name
+            team: props.team,
+            troops: props.troops
         };
     }
 
     render() {
+        const troops = this.state.troops;
+        console.log(troops);
         return(
             <MDBContainer>
                 <MDBCard>
-                    <MDBCardImage src="https://mdbootstrap.com/img/Photos/Others/images/49.jpg" 
-                                alt="MDBCard image cap" 
-                                top 
-                                hover
-                                overlay="white-slight" 
-                                className="img-fluid z-depth-1" />
                     <MDBCardBody>
-                        <MDBCardTitle tag="h5">{this.state.name}</MDBCardTitle>
-                        <MDBCardText>
-                            Some quick example text to build on the card title and make up
-                            the bulk of the card's content.
-                        </MDBCardText>
-                        <MDBBtn color="primary" size="md">
-                        read more
-                        </MDBBtn>
+                        <MDBCardTitle tag="h5">{this.state.team.team_name}</MDBCardTitle>
+                        Zastępy:
+                            <ul>
+                                {troops.map((troop) => {
+                                    return (  
+                                        <li key={troop.id}>
+                                            {troop.troop_name}
+                                        </li>
+                                    );
+                                })}
+                            </ul>
+                        
                     </MDBCardBody>
                 </MDBCard>
             </MDBContainer>
