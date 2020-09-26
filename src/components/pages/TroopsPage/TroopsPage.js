@@ -30,21 +30,22 @@ class TroopsPage extends Component {
     render() {
         const troops=this.state.troops;
         const teams=this.state.teams;
+        const results=this.state.results;
 
         return(
             <div>
                 <MDBContainer style={{ marginTop: '100px' }}>
-                  <MDBCardGroup>
+                  
                     <MDBRow>
                     {teams.map((team) => {
                       return (
-                      <MDBCol lg="6" md="6">
-                        <TeamCard key={team.id} team={team} troops={troops.filter(troop => troop.troop_team==team.id)}/>
+                      <MDBCol lg="6" md="6" key={team.id}>
+                        <TeamCard  team={team} results={results} troops={troops.filter(troop => troop.troop_team==team.id)}/>
                       </MDBCol>
                       );
                     })}
                     </MDBRow>
-                  </MDBCardGroup>
+                  
                 </MDBContainer>
             </div>
         );
